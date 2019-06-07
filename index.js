@@ -96,7 +96,7 @@ module.exports.activate = (context) => {
             const renderer = md.renderer.render.bind(md.renderer);
             md.renderer.render = (...args) => {
                 const themeFile = getThemeFile();
-                return `<style>@import url('${vscode.Uri.file(context.asAbsolutePath(`node_modules/prismjs/themes/${themeFile}`)).with({ scheme: 'vscode-resource' })}')</style>` + renderer(...args);
+                return `<style>@import url('${vscode.Uri.file(context.asAbsolutePath(themeFile)).with({ scheme: 'vscode-resource' })}')</style>` + renderer(...args);
             };
             return md;
         }
@@ -122,14 +122,34 @@ function getLanguageId(inId) {
 
 function getThemeFile() {
     switch (vscode.workspace.getConfiguration('markdownPrism').get('theme')) {
-        case 'coy': return 'prism-coy.css';
-        case 'dark': return 'prism-dark.css';
-        case 'funky': return 'prism-funky.css';
-        case 'okaidia': return 'prism-okaidia.css';
-        case 'solarizedlight': return 'prism-solarizedlight.css';
-        case 'tomorrow': return 'prism-tomorrow.css';
-        case 'twilight': return 'prism-twilight.css';
-        case 'prism': return 'prism.css';
-        default: return 'prism-tomorrow.css';
+        case 'coy': return 'node_modules/prismjs/themes/prism-coy.css';
+        case 'dark': return 'node_modules/prismjs/themes/prism-dark.css';
+        case 'funky': return 'node_modules/prismjs/themes/prism-funky.css';
+        case 'okaidia': return 'node_modules/prismjs/themes/prism-okaidia.css';
+        case 'solarizedlight': return 'node_modules/prismjs/themes/prism-solarizedlight.css';
+        case 'tomorrow': return 'node_modules/prismjs/themes/prism-tomorrow.css';
+        case 'twilight': return 'node_modules/prismjs/themes/prism-twilight.css';
+        case 'prism': return 'node_modules/prismjs/themes/prism.css';
+
+        case 'a11y-dark': return 'node_modules/prism-themes/themes/prism-a11y-dark.css';
+        case 'atom-dark': return 'node_modules/prism-themes/themes/prism-atom-dark.css';
+        case 'base16-ateliersulphurpool': return 'node_modules/prism-themes/themes/prism-base16-ateliersulphurpool.light.css';
+        case 'cb': return 'node_modules/prism-themes/themes/prism-cb.css';
+        case 'darcula': return 'node_modules/prism-themes/themes/prism-darcula.css';
+        case 'duotone-dark': return 'node_modules/prism-themes/themes/prism-duotone-dark.css';
+        case 'duotone-earth': return 'node_modules/prism-themes/themes/prism-duotone-earth.css';
+        case 'duotone-forest': return 'node_modules/prism-themes/themes/prism-duotone-forest.css';
+        case 'duotone-light': return 'node_modules/prism-themes/themes/prism-duotone-light.css';
+        case 'duotone-sea': return 'node_modules/prism-themes/themes/prism-duotone-sea.css';
+        case 'duotone-space': return 'node_modules/prism-themes/themes/prism-duotone-space.css';
+        case 'ghcolors': return 'node_modules/prism-themes/themes/prism-ghcolors.css';
+        case 'hopscotch': return 'node_modules/prism-themes/themes/prism-hopscotch.css';
+        case 'pojoaque': return 'node_modules/prism-themes/themes/prism-pojoaque.css';
+        case 'vs': return 'node_modules/prism-themes/themes/prism-vs.css';
+        case 'xonokai': return 'node_modules/prism-themes/themes/prism-xonokai.css';
+
+        case 'ghcolors-new': return 'prism-ghcolors-new.css';
+
+        default: return 'node_modules/prismjs/themes/prism-tomorrow.css';
     }
 }

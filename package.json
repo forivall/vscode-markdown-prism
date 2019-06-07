@@ -43,7 +43,24 @@
             "prism",
             "solarizedlight",
             "tomorrow",
-            "twilight"
+            "twilight",
+            "a11y-dark",
+            "atom-dark",
+            "base16-ateliersulphurpool",
+            "cb",
+            "darcula",
+            "duotone-dark",
+            "duotone-earth",
+            "duotone-forest",
+            "duotone-light",
+            "duotone-sea",
+            "duotone-space",
+            "ghcolors",
+            "hopscotch",
+            "pojoaque",
+            "vs",
+            "xonokai",
+            "ghcolors-new"
           ],
           "default": "tomorrow"
         }
@@ -55,6 +72,7 @@
     "markdown.markdownItPlugins": true
   },
   "dependencies": {
+    "prism-themes": "^1.1.0",
     "prismjs": "^1.15.0"
   },
   "devDependencies": {
